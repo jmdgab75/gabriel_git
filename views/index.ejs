@@ -8,7 +8,9 @@
 </head>
 <body>
     <% pessoas.forEach((pessoa) => { %>
-        <%= pessoa.nome %>
+      <p> <%= pessoa.nome %> </p>
+      <p> <%= pessoa.sobrenome %> </p>
     <% }) %>
+    <a href="/pessoas/apagar">Apagar</a>
 </body>
 </html>

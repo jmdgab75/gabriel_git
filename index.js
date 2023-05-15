@@ -18,8 +18,7 @@ app.get('/pessoas', async function(req, res){
 })
 
 app.get('/pessoas/criar', async function(req, res){
-  var pessoa = await pessoa.findAll();
-  res.render('pessoas/criar', { pessoa });
+  res.render('pessoas/criar');
 })
 
 app.post('/pessoas/criar', async function(req, res){
@@ -29,6 +28,16 @@ app.post('/pessoas/criar', async function(req, res){
   } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
+  }
+})
+
+app.get('/pessoas/apagar', async function(req, res){
+  try {
+      const pessoas = await pessoas.findOne({ where: { id: req.query.id } });
+      res.render('pessoas/criar', { pessoas });
+  } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: 'Ocorreu um erro ao buscar o usuário.' });
   }
 })
 
