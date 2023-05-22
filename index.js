@@ -33,11 +33,11 @@ app.post('/pessoas/criar', async function(req, res){
 
 app.get('/pessoas/apagar', async function(req, res){
   try {
-      const pessoas = await pessoas.findOne({ where: { id: req.query.id } });
-      res.render('pessoas/criar', { pessoas });
+      await pessoa.destroy({ where: { id: req.query.id } });
+      res.redirect('/pessoas')
   } catch (err) {
       console.error(err);
-      res.status(500).json({ message: 'Ocorreu um erro ao buscar o usuário.' });
+      res.status(500).json({ message: 'Ocorreu um erro ao criar o usuário.' });
   }
 })
 

@@ -7,10 +7,12 @@
     <title>Arquivo</title>
 </head>
 <body>
+  <p>
     <% pessoas.forEach((pessoa) => { %>
-      <p> <%= pessoa.nome %> </p>
-      <p> <%= pessoa.sobrenome %> </p>
+       <%= pessoa.id %> <%= pessoa.nome %> <%= pessoa.sobrenome %>
+       <a href="/pessoas/apagar?id=<%= pessoa.id %>">DELETAR</a>
+       <br/>
     <% }) %>
-    <a href="/pessoas/apagar">Apagar</a>
+  </p>
 </body>
 </html>
